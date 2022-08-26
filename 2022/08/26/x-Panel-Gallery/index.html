@@ -16,22 +16,22 @@
   <meta name="author" content="Puppy">
   <meta name="keywords" content="JS">
   
-    <meta name="description" content="1. 重点：利用DOM操作CSS 前: 后: 单图‘点击’后的效果 ** 2. 核心思路**  HTML： 整体由一个大的panels包含5个小的panel组成 123456789101112131415161718192021222324252627&lt;div class&#x3D;&quot;panels&quot;&gt;        &lt;div class&#x3D;&quot;panel pane">
+    <meta name="description" content="1. 重点：利用DOM操作CSS 前:  后: 单图‘点击’后的效果 ** 2. 核心思路**  HTML： 整体由一个大的panels包含5个小的panel组成 123456789101112131415161718192021222324252627&lt;div class&#x3D;&quot;panels&quot;&gt;        &lt;div class&#x3D;&quot;panel pan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="05-Flex Panel Gallery">
 <meta property="og:url" content="https://puppyyang1994.github.io/2022/08/26/x-Panel-Gallery/index.html">
 <meta property="og:site_name" content="Puppy Yang">
-<meta property="og:description" content="1. 重点：利用DOM操作CSS 前: 后: 单图‘点击’后的效果 ** 2. 核心思路**  HTML： 整体由一个大的panels包含5个小的panel组成 123456789101112131415161718192021222324252627&lt;div class&#x3D;&quot;panels&quot;&gt;        &lt;div class&#x3D;&quot;panel pane">
+<meta property="og:description" content="1. 重点：利用DOM操作CSS 前:  后: 单图‘点击’后的效果 ** 2. 核心思路**  HTML： 整体由一个大的panels包含5个小的panel组成 123456789101112131415161718192021222324252627&lt;div class&#x3D;&quot;panels&quot;&gt;        &lt;div class&#x3D;&quot;panel pan">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://puppyyang1994.github.io/images%5Cpasted-0.png">
+<meta property="og:image" content="https://puppyyang1994.github.io/images/pasted-5.png">
 <meta property="og:image" content="https://puppyyang1994.github.io/images/pasted-3.png">
 <meta property="og:image" content="https://puppyyang1994.github.io/images/pasted-4.png">
 <meta property="article:published_time" content="2022-08-26T01:51:00.000Z">
-<meta property="article:modified_time" content="2022-08-26T02:37:16.971Z">
+<meta property="article:modified_time" content="2022-08-26T02:44:01.566Z">
 <meta property="article:author" content="Puppy">
 <meta property="article:tag" content="JavaScript 30 days">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://puppyyang1994.github.io/images%5Cpasted-0.png">
+<meta name="twitter:image" content="https://puppyyang1994.github.io/images/pasted-5.png">
   
   
   
@@ -278,7 +278,8 @@
               <div class="markdown-body">
                 
                 <p><strong>1. 重点：利用DOM操作CSS</strong></p>
-<p>前:<br><img src="/images%5Cpasted-0.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
+<p>前:</p>
+<p><img src="/images/pasted-5.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
 <p>后:<br><img src="/images/pasted-3.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
 <p>单图‘点击’后的效果<br><img src="/images/pasted-4.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
 <p>** 2. 核心思路**</p>
@@ -298,8 +299,6 @@
 <li>JS</li>
 </ul>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">const</span> panels = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.panel&#x27;</span>)</span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">function</span> <span class="hljs-title function_">toggleOpen</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Hello&#x27;</span>);</span><br><span class="language-javascript">          <span class="hljs-variable language_">this</span>.<span class="hljs-property">classList</span>.<span class="hljs-title function_">toggle</span>(<span class="hljs-string">&#x27;open&#x27;</span>)</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript">      <span class="hljs-keyword">function</span> <span class="hljs-title function_">toggleActive</span>(<span class="hljs-params">e</span>) &#123;</span><br><span class="language-javascript">          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e.<span class="hljs-property">propertyName</span>);</span><br><span class="language-javascript">          <span class="hljs-keyword">if</span> (e.<span class="hljs-property">propertyName</span>.<span class="hljs-title function_">includes</span>(<span class="hljs-string">&#x27;flex&#x27;</span>)) &#123;</span><br><span class="language-javascript">              <span class="hljs-variable language_">this</span>.<span class="hljs-property">classList</span>.<span class="hljs-title function_">toggle</span>(<span class="hljs-string">&#x27;open-active&#x27;</span>)</span><br><span class="language-javascript">          &#125;</span><br><span class="language-javascript">      &#125;</span><br><span class="language-javascript"></span><br><span class="language-javascript"></span><br><span class="language-javascript">      panels.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">panel</span> =&gt;</span> panel.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, toggleOpen))</span><br><span class="language-javascript">      panels.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">panel</span> =&gt;</span> panel.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;transitionend&#x27;</span>, toggleActive))</span><br><span class="language-javascript">  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-
                 
               </div>
             
