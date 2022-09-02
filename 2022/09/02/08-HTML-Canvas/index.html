@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Puppy">
+  <meta name="keywords" content="JS">
+  
+    <meta name="description" content="HTML5 Canvas之前没有做过和canvas相关的案例，今天总结一下canvas的基本用法  1.在页面中放置一个canvas元素(HTML) 1&lt;canvas&gt;&lt;&#x2F;canvas&gt;  2.获取canvas元素和canvas元素的getContext(图像会在此被渲染)（JS） 123const canvas &#x3D; document.querySelector(&amp;#x27">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08- HTML Canvas">
+<meta property="og:url" content="https://puppyyang1994.github.io/2022/09/02/08-HTML-Canvas/index.html">
+<meta property="og:site_name" content="Puppy Yang">
+<meta property="og:description" content="HTML5 Canvas之前没有做过和canvas相关的案例，今天总结一下canvas的基本用法  1.在页面中放置一个canvas元素(HTML) 1&lt;canvas&gt;&lt;&#x2F;canvas&gt;  2.获取canvas元素和canvas元素的getContext(图像会在此被渲染)（JS） 123const canvas &#x3D; document.querySelector(&amp;#x27">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://puppyyang1994.github.io/images/pasted-1.png">
+<meta property="article:published_time" content="2022-09-02T07:39:00.000Z">
+<meta property="article:modified_time" content="2022-09-02T07:48:35.215Z">
+<meta property="article:author" content="Puppy">
+<meta property="article:tag" content="JavaScript 30 days">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://puppyyang1994.github.io/images/pasted-1.png">
+  
+  
+  
+  <title>08- HTML Canvas - Puppy Yang</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"puppyyang1994.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>鸟窝的blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="08- HTML Canvas"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-02 15:39" pubdate>
+          2022年9月2日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">08- HTML Canvas</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="HTML5-Canvas"><a href="#HTML5-Canvas" class="headerlink" title="HTML5 Canvas"></a>HTML5 Canvas</h3><p>之前没有做过和canvas相关的案例，今天总结一下canvas的基本用法</p>
+<p><img src="/images/pasted-1.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
+<p>1.在页面中放置一个canvas元素(HTML)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;canvas&gt;&lt;/canvas&gt;<br></code></pre></td></tr></table></figure>
+
+<p>2.获取canvas元素和canvas元素的getContext(图像会在此被渲染)（JS）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#draw&#x27;</span>)<br><span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>) <span class="hljs-comment">//以2d方式渲染</span><br><span class="hljs-comment">//getContext()方法用来获得渲染上下文和它的绘画功能。</span><br></code></pre></td></tr></table></figure>
+
+<p>3.让画布的大小和浏览器窗口的视口（viewport)的高度和宽度一致(JS)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">canvas.<span class="hljs-property">height</span> = windows.<span class="hljs-property">innerHeight</span><br>canvas.<span class="hljs-property">width</span> = windows.<span class="hljs-property">innerWidth</span><br></code></pre></td></tr></table></figure>
+
+<p>4.设置图形轮廓的颜色strokeStyle</p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">ctx.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&#x27;#BADA55&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>5.设置线条</p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">ctx.<span class="hljs-property">lineJoin</span> = <span class="hljs-string">&#x27;round&#x27;</span><span class="hljs-comment">// lineJoin设置线条与线条间结合处的样式</span><br>ctx.<span class="hljs-property">lineCap</span> = <span class="hljs-string">&#x27;round&#x27;</span><span class="hljs-comment">// lineCap 设置线条末端样式</span><br>ctx.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">50</span> <span class="hljs-comment">//设置线条宽度</span><br></code></pre></td></tr></table></figure>
+
+<p>6.绘制路径</p>
+<p>   补充：HSL色彩模式是工业界的一种颜色标准，是通过对色相(H)、饱和度(S)、明度(L)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，HSL即是代表色相，饱和度，明度三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。为了颜色保持变化，在hue超过360时，将其变为0</p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//1. 首先，你需要创建路径起始点。</span><br><span class="hljs-comment">//2.然后你使用画图命令去画出路径。</span><br><span class="hljs-comment">//3.通过线条来绘制图形轮廓。</span><br><span class="hljs-comment">//定义两个全局变量： lastX 和lastY 初识为0</span><br><span class="hljs-keyword">let</span> lastX = <span class="hljs-number">0</span><br><span class="hljs-keyword">let</span> lasY = <span class="hljs-number">0</span><br><span class="hljs-keyword">let</span> hue = <span class="hljs-number">0</span><br><span class="hljs-comment">//让direction控制线条大小渐变， 设置初始值为true</span><br><span class="hljs-keyword">let</span> direction = <span class="hljs-literal">true</span><br><span class="hljs-keyword">let</span> isDrawing = <span class="hljs-literal">false</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">draw</span>(<span class="hljs-params">e</span>) &#123;<br><span class="hljs-keyword">if</span>(!isDrawing) <span class="hljs-keyword">return</span>;<br>  ctx.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">`hsl(<span class="hljs-subst">$&#123;hue&#125;</span>, 100%, 50%)`</span>;<br>    ctx.<span class="hljs-title function_">beginPath</span>(); <span class="hljs-comment">//调用beginPath()准备绘制一个新的形状路径</span><br>    <span class="hljs-comment">//绘制路径 此时还没有线条</span><br>    ctx.<span class="hljs-title function_">moveTo</span>(lastX, lastY); <span class="hljs-comment">//使用moveTo()函数移动到目标位置</span><br>    <span class="hljs-comment">//绘制线条</span><br>    ctx.<span class="hljs-title function_">lineTo</span>(e.<span class="hljs-property">offsetX</span>, e.<span class="hljs-property">offsetY</span>); <span class="hljs-comment">//lineTo(x, y)绘制一条从当前位置到指定xy位置的直线。</span><br>    ctx.<span class="hljs-title function_">stroke</span>();<span class="hljs-comment">//通过线条来绘制图形轮廓。</span><br>    <span class="hljs-comment">//ctx.fill()通过填充路径的内容区域生成实心的图形。</span><br>    <span class="hljs-comment">//使用数组解构，将解构出来的值赋值给x y</span><br>    [lastX, lastY] = [e.<span class="hljs-property">offsetX</span>, e.<span class="hljs-property">offsetY</span>]<span class="hljs-comment">//把当前的坐标当做起点</span><br>    hue++<br>      <span class="hljs-keyword">if</span>(hue&gt;=<span class="hljs-number">360</span>)&#123;<br>          hue = <span class="hljs-number">0</span><br>      &#125;<br>      <span class="hljs-comment">//当线条大于100或者小于1时，线条变化，direction控制线条的减少和增加</span><br>      <span class="hljs-keyword">if</span>(ctx.<span class="hljs-property">lineWidth</span> &gt;=<span class="hljs-number">100</span> ||ctx.<span class="hljs-property">lineWidth</span>)  &#123;<br>          direction = !direction<br>      &#125;  <br>      <span class="hljs-keyword">if</span>(direction)&#123;<br>          ctx.<span class="hljs-property">lineWidth</span>++<br>      &#125;<span class="hljs-keyword">else</span>&#123;<br>          ctx.<span class="hljs-property">lineWidth</span>--<br>      &#125;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>   7.事件监听部分</p>
+<ul>
+<li><p>单击鼠标-按下准备开始</p>
+</li>
+<li><p>移动鼠标-画线</p>
+</li>
+<li><p>松开手指-结束画线</p>
+<p> 按下鼠标画出图像</p>
+<pre><code class="hljs">canvas.addEventListener(&#39;mousedown&#39;, (e) =&gt; &#123;
+isDrawing = true
+[lastX, lastY] = [e.offsetX, e.offsetY]
+&#125;)
+</code></pre>
+<p>设定 mousemove 事件监听触发的函数进行绘制。但是，只有 mousemove 事件监听时，只要鼠标在页面上划过都会触发函数。这时我们需要一个标记变量，来控制当前鼠标是不是处在按下的状态。</p>
+<pre><code class="hljs">canvas.addEventListener(&#39;mousemove&#39;, draw)
+canvas.addEventListener(&#39;mouseup&#39;, ()=&gt; isDrawing = false)
+canvas.addEventListener(&#39;mouseuot&#39;, ()=&gt; isDrawing = false)
+</code></pre>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS/" class="category-chain-item">JS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript-30-days/">#JavaScript 30 days</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>08- HTML Canvas</div>
+      <div>https://puppyyang1994.github.io/2022/09/02/08-HTML-Canvas/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Puppy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月2日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/30/JS%E7%8E%B0%E4%BB%A3%E6%95%99%E7%A8%8B-%E5%87%BD%E6%95%B0/" title="JS现代教程-函数">
+                        <span class="hidden-mobile">JS现代教程-函数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
