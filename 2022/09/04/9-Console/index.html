@@ -16,24 +16,22 @@
   <meta name="author" content="Puppy">
   <meta name="keywords" content="JS">
   
-    <meta name="description" content="HTML5 Canvas之前没有做过和canvas相关的案例，今天总结一下canvas的基本用法  1.在页面中放置一个canvas元素(HTML) 1&lt;canvas&gt;&lt;&#x2F;canvas&gt;  2.获取canvas元素和canvas元素的getContext(图像会在此被渲染)（JS） 123const canvas &#x3D; document.querySelector(&amp;#x27">
+    <meta name="description" content="Console控制台平时一般只用console的打印功能，今天的训练学习到了关于console的更多功能 1.log这个是最常用的，但它还有一些更多功能：比如参数支持类似 C 语言的字符串替换模式。  %s 字符串 %d 整数 %f 浮点值 %o Object %c 设定输出的样式，在之后的文字将按照第二个参数里的值进行显示  1234console.log(&quot;输出一个字符串 %s &amp;q">
 <meta property="og:type" content="article">
-<meta property="og:title" content="08- HTML Canvas">
-<meta property="og:url" content="https://puppyyang1994.github.io/2022/09/02/08-HTML-Canvas/index.html">
+<meta property="og:title" content="09-Console">
+<meta property="og:url" content="https://puppyyang1994.github.io/2022/09/04/9-Console/index.html">
 <meta property="og:site_name" content="Puppy Yang">
-<meta property="og:description" content="HTML5 Canvas之前没有做过和canvas相关的案例，今天总结一下canvas的基本用法  1.在页面中放置一个canvas元素(HTML) 1&lt;canvas&gt;&lt;&#x2F;canvas&gt;  2.获取canvas元素和canvas元素的getContext(图像会在此被渲染)（JS） 123const canvas &#x3D; document.querySelector(&amp;#x27">
+<meta property="og:description" content="Console控制台平时一般只用console的打印功能，今天的训练学习到了关于console的更多功能 1.log这个是最常用的，但它还有一些更多功能：比如参数支持类似 C 语言的字符串替换模式。  %s 字符串 %d 整数 %f 浮点值 %o Object %c 设定输出的样式，在之后的文字将按照第二个参数里的值进行显示  1234console.log(&quot;输出一个字符串 %s &amp;q">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://puppyyang1994.github.io/images/pasted-1.png">
-<meta property="article:published_time" content="2022-09-02T07:39:00.000Z">
-<meta property="article:modified_time" content="2022-09-02T07:48:35.215Z">
+<meta property="article:published_time" content="2022-09-04T02:58:09.000Z">
+<meta property="article:modified_time" content="2022-09-04T03:00:25.611Z">
 <meta property="article:author" content="Puppy">
-<meta property="article:tag" content="JavaScript 30 days">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://puppyyang1994.github.io/images/pasted-1.png">
   
   
   
-  <title>08- HTML Canvas - Puppy Yang</title>
+  <title>09-Console - Puppy Yang</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="08- HTML Canvas"></span>
+            <span id="subtitle" data-typed-text="09-Console"></span>
           
         </div>
 
@@ -209,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-02 15:39" pubdate>
-          2022年9月2日 下午
+        <time datetime="2022-09-04 10:58" pubdate>
+          2022年9月4日 上午
         </time>
       </span>
     
@@ -232,7 +230,7 @@
         
         
         
-          18 分钟
+          17 分钟
         
       </span>
     
@@ -270,52 +268,44 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">08- HTML Canvas</h1>
+            <h1 style="display: none">09-Console</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="HTML5-Canvas"><a href="#HTML5-Canvas" class="headerlink" title="HTML5 Canvas"></a>HTML5 Canvas</h3><p>之前没有做过和canvas相关的案例，今天总结一下canvas的基本用法</p>
-<p><img src="/images/pasted-1.png" srcset="/img/loading.gif" lazyload alt="upload successful"></p>
-<p>1.在页面中放置一个canvas元素(HTML)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;canvas&gt;&lt;/canvas&gt;<br></code></pre></td></tr></table></figure>
-
-<p>2.获取canvas元素和canvas元素的getContext(图像会在此被渲染)（JS）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#draw&#x27;</span>)<br><span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>) <span class="hljs-comment">//以2d方式渲染</span><br><span class="hljs-comment">//getContext()方法用来获得渲染上下文和它的绘画功能。</span><br></code></pre></td></tr></table></figure>
-
-<p>3.让画布的大小和浏览器窗口的视口（viewport)的高度和宽度一致(JS)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">canvas.<span class="hljs-property">height</span> = windows.<span class="hljs-property">innerHeight</span><br>canvas.<span class="hljs-property">width</span> = windows.<span class="hljs-property">innerWidth</span><br></code></pre></td></tr></table></figure>
-
-<p>4.设置图形轮廓的颜色strokeStyle</p>
-   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">ctx.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&#x27;#BADA55&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<p>5.设置线条</p>
-   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">ctx.<span class="hljs-property">lineJoin</span> = <span class="hljs-string">&#x27;round&#x27;</span><span class="hljs-comment">// lineJoin设置线条与线条间结合处的样式</span><br>ctx.<span class="hljs-property">lineCap</span> = <span class="hljs-string">&#x27;round&#x27;</span><span class="hljs-comment">// lineCap 设置线条末端样式</span><br>ctx.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">50</span> <span class="hljs-comment">//设置线条宽度</span><br></code></pre></td></tr></table></figure>
-
-<p>6.绘制路径</p>
-<p>   补充：HSL色彩模式是工业界的一种颜色标准，是通过对色相(H)、饱和度(S)、明度(L)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，HSL即是代表色相，饱和度，明度三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。为了颜色保持变化，在hue超过360时，将其变为0</p>
-   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//1. 首先，你需要创建路径起始点。</span><br><span class="hljs-comment">//2.然后你使用画图命令去画出路径。</span><br><span class="hljs-comment">//3.通过线条来绘制图形轮廓。</span><br><span class="hljs-comment">//定义两个全局变量： lastX 和lastY 初识为0</span><br><span class="hljs-keyword">let</span> lastX = <span class="hljs-number">0</span><br><span class="hljs-keyword">let</span> lasY = <span class="hljs-number">0</span><br><span class="hljs-keyword">let</span> hue = <span class="hljs-number">0</span><br><span class="hljs-comment">//让direction控制线条大小渐变， 设置初始值为true</span><br><span class="hljs-keyword">let</span> direction = <span class="hljs-literal">true</span><br><span class="hljs-keyword">let</span> isDrawing = <span class="hljs-literal">false</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">draw</span>(<span class="hljs-params">e</span>) &#123;<br><span class="hljs-keyword">if</span>(!isDrawing) <span class="hljs-keyword">return</span>;<br>  ctx.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">`hsl(<span class="hljs-subst">$&#123;hue&#125;</span>, 100%, 50%)`</span>;<br>    ctx.<span class="hljs-title function_">beginPath</span>(); <span class="hljs-comment">//调用beginPath()准备绘制一个新的形状路径</span><br>    <span class="hljs-comment">//绘制路径 此时还没有线条</span><br>    ctx.<span class="hljs-title function_">moveTo</span>(lastX, lastY); <span class="hljs-comment">//使用moveTo()函数移动到目标位置</span><br>    <span class="hljs-comment">//绘制线条</span><br>    ctx.<span class="hljs-title function_">lineTo</span>(e.<span class="hljs-property">offsetX</span>, e.<span class="hljs-property">offsetY</span>); <span class="hljs-comment">//lineTo(x, y)绘制一条从当前位置到指定xy位置的直线。</span><br>    ctx.<span class="hljs-title function_">stroke</span>();<span class="hljs-comment">//通过线条来绘制图形轮廓。</span><br>    <span class="hljs-comment">//ctx.fill()通过填充路径的内容区域生成实心的图形。</span><br>    <span class="hljs-comment">//使用数组解构，将解构出来的值赋值给x y</span><br>    [lastX, lastY] = [e.<span class="hljs-property">offsetX</span>, e.<span class="hljs-property">offsetY</span>]<span class="hljs-comment">//把当前的坐标当做起点</span><br>    hue++<br>      <span class="hljs-keyword">if</span>(hue&gt;=<span class="hljs-number">360</span>)&#123;<br>          hue = <span class="hljs-number">0</span><br>      &#125;<br>      <span class="hljs-comment">//当线条大于100或者小于1时，线条变化，direction控制线条的减少和增加</span><br>      <span class="hljs-keyword">if</span>(ctx.<span class="hljs-property">lineWidth</span> &gt;=<span class="hljs-number">100</span> ||ctx.<span class="hljs-property">lineWidth</span>)  &#123;<br>          direction = !direction<br>      &#125;  <br>      <span class="hljs-keyword">if</span>(direction)&#123;<br>          ctx.<span class="hljs-property">lineWidth</span>++<br>      &#125;<span class="hljs-keyword">else</span>&#123;<br>          ctx.<span class="hljs-property">lineWidth</span>--<br>      &#125;<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>   7.事件监听部分</p>
+                <h2 id="Console控制台"><a href="#Console控制台" class="headerlink" title="Console控制台"></a>Console控制台</h2><p>平时一般只用console的打印功能，今天的训练学习到了关于console的更多功能</p>
+<h3 id="1-log"><a href="#1-log" class="headerlink" title="1.log"></a>1.log</h3><p>这个是最常用的，但它还有一些更多功能：比如参数支持类似 C 语言的字符串替换模式。</p>
 <ul>
-<li><p>单击鼠标-按下准备开始</p>
-</li>
-<li><p>移动鼠标-画线</p>
-</li>
-<li><p>松开手指-结束画线</p>
-<p> 按下鼠标画出图像</p>
-<pre><code class="hljs">canvas.addEventListener(&#39;mousedown&#39;, (e) =&gt; &#123;
-isDrawing = true
-[lastX, lastY] = [e.offsetX, e.offsetY]
-&#125;)
-</code></pre>
-<p>设定 mousemove 事件监听触发的函数进行绘制。但是，只有 mousemove 事件监听时，只要鼠标在页面上划过都会触发函数。这时我们需要一个标记变量，来控制当前鼠标是不是处在按下的状态。</p>
-<pre><code class="hljs">canvas.addEventListener(&#39;mousemove&#39;, draw)
-canvas.addEventListener(&#39;mouseup&#39;, ()=&gt; isDrawing = false)
-canvas.addEventListener(&#39;mouseuot&#39;, ()=&gt; isDrawing = false)
-</code></pre>
-</li>
+<li><code>%s</code> 字符串</li>
+<li><code>%d</code> 整数</li>
+<li><code>%f</code> 浮点值</li>
+<li><code>%o</code> Object</li>
+<li><code>%c</code> 设定输出的样式，在之后的文字将按照第二个参数里的值进行显示</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;输出一个字符串 %s &quot;</span>, <span class="hljs-string">&quot;log&quot;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;输出一个整数是 %d &quot;</span>, <span class="hljs-number">1.23</span>); <span class="hljs-comment">//1</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;输出一个小数是 %f &quot;</span>, <span class="hljs-number">1.23</span>); <span class="hljs-comment">//1.23</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;%c不同样式的输出效果&quot;</span>, <span class="hljs-string">&quot;color: #00fdff; font-size: 2em;&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-不同样式的输出"><a href="#2-不同样式的输出" class="headerlink" title="2.不同样式的输出"></a>2.不同样式的输出</h3><p>除了常规的 <code>log</code> 之外，还有一些其他已设定好的样式，区别在于图标或者颜色不一样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// warning!</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">warn</span>(<span class="hljs-string">&quot;三角感叹号图标，淡黄色背景&quot;</span>)<br><span class="hljs-comment">// Error :|</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;红叉图标，红字红色背景&quot;</span>);<br><span class="hljs-comment">// Info</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">info</span>(<span class="hljs-string">&quot;蓝色圆形感叹号图标&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-打印输出"><a href="#3-打印输出" class="headerlink" title="3.打印输出"></a>3.打印输出</h3><p>获取 DOM 元素之后，也可以打印输出。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> p = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;p&#x27;</span>);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(p);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">dir</span>(p);<br></code></pre></td></tr></table></figure>
+
+<p>不同的地方在于，<code>log</code> 输出这个 DOM 的 HTML 标签，而 <code>dir</code> 则会输出这个 DOM 元素的属性列表。</p>
+<h3 id="4-clear"><a href="#4-clear" class="headerlink" title="4. clear"></a>4. clear</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">clear</span>()<span class="hljs-comment">//Console was cleared</span><br><span class="hljs-comment">//快捷键ctrl+L</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="5-assert方法进行测试"><a href="#5-assert方法进行测试" class="headerlink" title="5.assert方法进行测试"></a>5.assert方法进行测试</h3><p> 接受一个表达式作为参数，如果参数返回值是 false，则会输出第二个参数中的内容。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"> <span class="hljs-comment">// p.classList.contians()返回布尔类型；若传入的参数token包含在列表中时则返回true ，否则返回 false。</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">assert</span>(p.<span class="hljs-property">classList</span>.<span class="hljs-title function_">contains</span>(<span class="hljs-string">&#x27;ouch&#x27;</span>), <span class="hljs-string">&#x27;That is wrong&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-清晰呈现数据"><a href="#6-清晰呈现数据" class="headerlink" title="6.清晰呈现数据"></a>6.清晰呈现数据</h3><ol>
+<li><p>console.table()  可以将数组、对象以表格的形式打印输出，如果只输出其中的某一列，可以加上第二个参数，示例如下。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">table</span>(dogs);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">table</span>(dogs, [<span class="hljs-string">&quot;age&quot;</span>]);<br></code></pre></td></tr></table></figure></li>
+<li><p>将数据分组展示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> dogs = [&#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Snickers&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">2</span> &#125;, &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;hugo&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">8</span> &#125;];<br>dogs.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">dog</span> =&gt;</span> &#123;<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">group</span>();		<br><span class="hljs-comment">//	console.groupCollapsed();  // 收起列表</span><br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;dog.name&#125;</span>`</span>);<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;dog.age&#125;</span>`</span>);<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123;dog.name&#125;</span> 有 <span class="hljs-subst">$&#123;dog.age&#125;</span> 岁了`</span>);<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">groupEnd</span>();<br>&#125;);<br><span class="hljs-comment">// group/groupCollapsed 和 groupEnd之间的内容会自动分组</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="7-count计数"><a href="#7-count计数" class="headerlink" title="7.count计数"></a>7.count计数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;Wes&#x27;</span>) <span class="hljs-comment">//Wes: 1</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;Wes&#x27;</span>) <span class="hljs-comment">//Wes: 2</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;puppy&#x27;</span>) <span class="hljs-comment">//puppy: 1</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;puppy&#x27;</span>) <span class="hljs-comment">//puppy: 2</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">count</span>(<span class="hljs-string">&#x27;puppy&#x27;</span>)<span class="hljs-comment">//puppy: 3</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="8-timing-计时"><a href="#8-timing-计时" class="headerlink" title="8.timing 计时"></a>8.timing 计时</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//异步数据的获取花费了多久时间</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">time</span>(<span class="hljs-string">&#x27;fetching data&#x27;</span>)<br>        <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.github.com/users/wesbos&#x27;</span>)<br>            .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> data.<span class="hljs-title function_">json</span>())<br>            .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">timeEnd</span>(<span class="hljs-string">&#x27;fetching data&#x27;</span>)<br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);<br>            &#125;)<br><span class="hljs-comment">// time(&#x27;&#x27;)和timeEnd(&#x27;&#x27;)分别控制开始计时和结束计时,里面参数的name要保持一致</span><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -324,34 +314,6 @@ canvas.addEventListener(&#39;mouseuot&#39;, ()=&gt; isDrawing = false)
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/JS/" class="category-chain-item">JS</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/JavaScript-30-days/">#JavaScript 30 days</a>
-      
-    </div>
   
 </div>
 
@@ -361,8 +323,8 @@ canvas.addEventListener(&#39;mouseuot&#39;, ()=&gt; isDrawing = false)
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>08- HTML Canvas</div>
-      <div>https://puppyyang1994.github.io/2022/09/02/08-HTML-Canvas/</div>
+      <div>09-Console</div>
+      <div>https://puppyyang1994.github.io/2022/09/04/9-Console/</div>
     </div>
     <div class="license-meta">
       
@@ -374,7 +336,7 @@ canvas.addEventListener(&#39;mouseuot&#39;, ()=&gt; isDrawing = false)
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月2日</div>
+          <div>2022年9月4日</div>
         </div>
       
       
@@ -404,18 +366,12 @@ canvas.addEventListener(&#39;mouseuot&#39;, ()=&gt; isDrawing = false)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/04/9-Console/" title="09-Console">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">09-Console</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/30/JS%E7%8E%B0%E4%BB%A3%E6%95%99%E7%A8%8B-%E5%87%BD%E6%95%B0/" title="JS现代教程-函数">
-                        <span class="hidden-mobile">JS现代教程-函数</span>
+                      <a href="/2022/09/02/08-HTML-Canvas/" title="08- HTML Canvas">
+                        <span class="hidden-mobile">08- HTML Canvas</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
