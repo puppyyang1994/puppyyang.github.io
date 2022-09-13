@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>12- Key Sequence Detection</title>
+    <link href="/2022/09/13/2-Key-Sequence-Detection/"/>
+    <url>/2022/09/13/2-Key-Sequence-Detection/</url>
+    
+    <content type="html"><![CDATA[<h3 id="12-Key-Sequence-Detection"><a href="#12-Key-Sequence-Detection" class="headerlink" title="12  **Key Sequence Detection **"></a>12  **Key Sequence Detection **</h3><h4 id="1-实现效果"><a href="#1-实现效果" class="headerlink" title="1. 实现效果"></a>1. 实现效果</h4><p>通过<code>script</code>引入提供的<code>Cornify.com</code>加载一个JS文件，调用其中的<code>cornify_add()</code>方法，在页面中追加<code>p</code>标签，并在<code>DOM</code>中插入图片。</p><p>实现效果的前提是要先在页面输入完整的”密码”。</p><h4 id="2-思路"><a href="#2-思路" class="headerlink" title="2. 思路"></a>2. 思路</h4><ol><li>先输入特定的字符串(密码)</li><li>监听并且获取输入的字符串</li><li>处理输入，在符合条件时，调用<code>cornify</code></li></ol><h4 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//1. 声明一个空数组，用于存放输入的字符</span><br><span class="hljs-keyword">const</span> pressed = [];<br><span class="hljs-comment">// 2. 声明暗号（密码）</span><br><span class="hljs-keyword">const</span> secretCode = <span class="hljs-string">&#x27;wesbos&#x27;</span>;<br><span class="hljs-comment">//3. 添加键盘事件（这个事件是针对整个页面的）</span><br><span class="hljs-comment">//注意 keydown是要一直按着键盘才会生效，弹起后就不生效了</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>)=&gt;</span>&#123;<br>   <span class="hljs-comment">// 打印输入的键盘的值</span><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e.<span class="hljs-property">key</span>)<br>    <span class="hljs-comment">//4. 把按下的值存放到空数组中</span><br>    pressed.<span class="hljs-title function_">push</span>(e.<span class="hljs-property">key</span>)<br>    <span class="hljs-comment">//当输入的密码的长度大于已经设置的密码的长度，从数组首部删除一个</span><br>    <span class="hljs-keyword">while</span>(pressed.<span class="hljs-property">length</span>&gt;secretCode.<span class="hljs-property">length</span>)&#123;<br>        pressed.<span class="hljs-title function_">shift</span>();<br>    &#125;<br>    <span class="hljs-comment">//把数组变成字符串 如果输入的密码和设置的密码相同 调用cornify_add()方法</span><br>    <span class="hljs-keyword">if</span>(pressed.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">toLowerCase</span>() === secretCode)<br>        <span class="hljs-title function_">cornify_add</span>();<br>&#125;)<br><br></code></pre></td></tr></table></figure><p>作者的代码和上面有些不同，作者是通过<code>splice()</code>方法来进行数组删除的</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> pressed = [];<br><span class="hljs-keyword">const</span> secretCode = <span class="hljs-string">&#x27;wesbos&#x27;</span>;<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>)=&gt;</span>&#123;<br>press.<span class="hljs-title function_">push</span>(e.<span class="hljs-property">key</span>)<br>press.<span class="hljs-title function_">splice</span>(<span class="hljs-number">0</span>, pressed.<span class="hljs-property">length</span> - secretCode.<span class="hljs-property">length</span>)<br><span class="hljs-comment">//这段代码保证了输入的值的长度和设定的值的长度相等</span><br><span class="hljs-keyword">if</span>(pressed.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">includes</span>(secretCode))&#123;<br>    <span class="hljs-title function_">cornify_add</span>()<br><span class="hljs-comment">//有上面代码作为前提，用includes()可以保证pressed和secretCode完全相等</span><br>&#125;<br>&#125;)<br></code></pre></td></tr></table></figure><p> <strong><code>includes()</code></strong> 方法用于判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false。 </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>JS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript 30 days</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>11- Video Player</title>
     <link href="/2022/09/08/1-Video-Player/"/>
     <url>/2022/09/08/1-Video-Player/</url>
