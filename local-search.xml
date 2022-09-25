@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>13-Slide in on Scroll</title>
+    <link href="/2022/09/25/13-Slide-in-on-Scroll/"/>
+    <url>/2022/09/25/13-Slide-in-on-Scroll/</url>
+    
+    <content type="html"><![CDATA[<h3 id="13-Slide-in-on-scroll"><a href="#13-Slide-in-on-scroll" class="headerlink" title="13. Slide in on scroll"></a>13. Slide in on scroll</h3><h4 id="1-实现效果"><a href="#1-实现效果" class="headerlink" title="1. 实现效果"></a>1. 实现效果</h4><p>随着页面上下滚动，图片位置划过图片的一半时，图片从两侧滑入；图片位置离开可见区域时，图片滑出。</p><h4 id="2-相关知识点"><a href="#2-相关知识点" class="headerlink" title="2. 相关知识点"></a>2. 相关知识点</h4><ul><li><p><code>translateX</code>控制左右移动；<code>scale</code>控制元素的缩放</p></li><li><p><code>Element.scrollTop</code>属性获取或者设置一个元素的内容垂直滚动的像素数</p></li><li><p><code>window.innerHeight</code>浏览器窗口的视口高度（以像素为单位），如果有滚动条，也包括滚动条的高度。<strong>只读属性</strong>没有默认值。</p></li><li><p><code>HTMLElement.offsetTop</code> <strong>只读属性</strong>，它返回当前元素相对于其父元素的顶部内边距的距离。</p></li><li><p><code>debounce</code>的作用：降低事件监听的频率</p></li><li><p><code>apply()</code>方法  是为了动态改变<code>this</code>而出现的，当一个<code>object</code>没有某方法，但是其他的有时，我们可以借助<code>apply</code>用其他对象的方法来操作</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript">func.<span class="hljs-title function_">apply</span>(<span class="hljs-variable language_">this</span>, [arg1, arg2])<br></code></pre></td></tr></table></figure></li></ul><h4 id="3-思路"><a href="#3-思路" class="headerlink" title="3. 思路"></a>3. 思路</h4><ul><li>获取页面中的所有图片元素</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> sliderImages = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;.slide-in&#x27;</span>)<br></code></pre></td></tr></table></figure><ul><li>监听滚动事件</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">checkSlide</span>(<span class="hljs-params">e</span>)&#123;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">count</span>(e);<br>&#125;<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, <span class="hljs-title function_">debounce</span>(checkSlide))<br></code></pre></td></tr></table></figure><p>由于每次滚动都会触发事件，会降低JS的运行性能， 所以用<code>debounce</code>来减少触发的次数</p><p>针对每一次监听到的滚动事件，都遍历图片元素，判断是否显示或者隐藏图片；图片的显示只需要通过<code>.active</code>类</p><ul><li>尺寸获取和处理</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//滑动页面的底部距离扣除图片一半的高度</span><br><span class="hljs-keyword">const</span> slideInAt = (<span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span> + <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span>) - img.<span class="hljs-property">height</span>/<span class="hljs-number">2</span><br><span class="hljs-comment">// 图片底部距离顶端的距离</span><br><span class="hljs-keyword">const</span> imgBottom = img.<span class="hljs-property">offsetTop</span> + img.<span class="hljs-property">height</span><br></code></pre></td></tr></table></figure><p><img src="/images/pasted-9.png" alt="upload successful"></p><ul><li><p>滚动至指定区域的判断</p><p>需要利用两个临界点来判断图片是否显示，所以用两个值来存放该条件的结果（这样能保证每次事件监听的结果赋值给常量后，不会随window的属性值变化）</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 已滑过了图片的一半</span><br><span class="hljs-keyword">const</span> isHalfShow = slideInAt &gt; img.<span class="hljs-property">setoffTop</span>;<br><span class="hljs-comment">// 未完全划过图片</span><br><span class="hljs-keyword">const</span> isNotScrollPast = <span class="hljs-variable language_">window</span>.<span class="hljs-property">scrollY</span>&lt; imgBottom;<br></code></pre></td></tr></table></figure><p>对于满足现实条件的，给图片添加<code>.active</code>类，不满足的则去掉</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span>(isHalfShow &amp;&amp; isNotScrollPast)&#123;<br>img.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;active&#x27;</span>);<br>&#125;<span class="hljs-keyword">else</span> &#123;<br>img.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;active&#x27;</span>)<br>&#125;<br></code></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>JS</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JavaScript 30 days</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Vue学习笔记（一）</title>
     <link href="/2022/09/17/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <url>/2022/09/17/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
