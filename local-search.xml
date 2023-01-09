@@ -4,13 +4,19 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2023/01/06/%E9%97%AD%E5%8C%85/"/>
-    <url>/2023/01/06/%E9%97%AD%E5%8C%85/</url>
+    <title>闭包</title>
+    <link href="/2023/01/09/%E9%97%AD%E5%8C%85/"/>
+    <url>/2023/01/09/%E9%97%AD%E5%8C%85/</url>
     
-    <content type="html"><![CDATA[<p>什么是闭包？</p>]]></content>
+    <content type="html"><![CDATA[<p><strong>什么是闭包</strong></p><p>阮一峰：</p><p>闭包就是能够读取其他函数内部变量的函数</p><p>本质上，闭包就是将函数内部和外部连接起来的一座桥梁。</p><p>闭包用途: 最大的作用有两个：读取函数内部的变量； 让这些变量的值始终保持在内存中 </p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+    </tags>
     
   </entry>
   
