@@ -16,22 +16,22 @@
   <meta name="author" content="Puppy">
   <meta name="keywords" content="JS">
   
-    <meta name="description" content="我回来了！ 2023 坚持写博客！">
+    <meta name="description" content="git bash 然后输入 mkdir coding  就创建了一个文件夹 （此时文件夹里是空的）  cd coding 到文件夹coding的位置  再git init  此时文件夹中会出来一个.git的文件夹  在coding文件夹中手动创建一个test.txt  使用命令行 git add test.txt 将文件放到暂存区  再git status查看文件夹的状态 会显示 changes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好久不见">
-<meta property="og:url" content="https://puppyyang1994.github.io/2023/01/06/%E5%A5%BD%E4%B9%85%E4%B8%8D%E8%A7%81/index.html">
+<meta property="og:title" content="Git的基本使用">
+<meta property="og:url" content="https://puppyyang1994.github.io/2023/02/14/%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Puppy Yang">
-<meta property="og:description" content="我回来了！ 2023 坚持写博客！">
+<meta property="og:description" content="git bash 然后输入 mkdir coding  就创建了一个文件夹 （此时文件夹里是空的）  cd coding 到文件夹coding的位置  再git init  此时文件夹中会出来一个.git的文件夹  在coding文件夹中手动创建一个test.txt  使用命令行 git add test.txt 将文件放到暂存区  再git status查看文件夹的状态 会显示 changes">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-06T07:11:08.000Z">
-<meta property="article:modified_time" content="2023-01-06T07:25:31.449Z">
+<meta property="article:published_time" content="2023-02-14T01:03:00.000Z">
+<meta property="article:modified_time" content="2023-02-14T01:08:42.489Z">
 <meta property="article:author" content="Puppy">
-<meta property="article:tag" content="Daily">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>好久不见 - Puppy Yang</title>
+  <title>Git的基本使用 - Puppy Yang</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="好久不见"></span>
+            <span id="subtitle" data-typed-text="Git的基本使用"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-06 15:11" pubdate>
-          2023年1月6日 下午
+        <time datetime="2023-02-14 09:03" pubdate>
+          2023年2月14日 上午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          15 字
+          1.1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -268,13 +268,65 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">好久不见</h1>
+            <h1 style="display: none">Git的基本使用</h1>
             
             
               <div class="markdown-body">
                 
-                <p>我回来了！</p>
-<p>2023 坚持写博客！</p>
+                <ol>
+<li><p>git bash 然后输入 mkdir coding  就创建了一个文件夹 （此时文件夹里是空的）</p>
+</li>
+<li><p>cd coding 到文件夹coding的位置</p>
+</li>
+<li><p>再git init  此时文件夹中会出来一个.git的文件夹</p>
+</li>
+<li><p>在coding文件夹中手动创建一个test.txt</p>
+</li>
+<li><p>使用命令行 git add test.txt 将文件放到暂存区</p>
+</li>
+<li><p>再git status查看文件夹的状态 会显示 changes to be committed (绿色的 new file test.txt</p>
+</li>
+<li><p>然后git commit -m “第一次提交”  会显示 creat mode test.txt 这样文件就放到本地仓库了</p>
+</li>
+<li><p>git remote add origin(名) url</p>
+</li>
+<li><p>git branch -M main</p>
+</li>
+<li><p>git push -u origin main</p>
+<p>如果再上传一个文件夹的话 要把origin改成别的名字</p>
+</li>
+<li><p>把文件内容改了之后 再git status 会发现 变成了modified 此时 我们git add . 添加到暂存区 然后 git commit -m “second commit” 然后 git push -u origin main</p>
+</li>
+</ol>
+<p>注意：- 如果一个文件夹 已经有.git文件包了  不能在新建一个有.git的文件包进来</p>
+<p>​           - git 不能远程上传一个空文件夹 必须在它的里面放点东西</p>
+<p>返回上一级文件夹 命令行 cd ..</p>
+<p>分支主要是每个程序元负责自己的版块 等到最后大家都合并到master分支上</p>
+<ol start="12">
+<li><p>通过git branch 命令行 可以查看所有的分支，分支前的*号表示当前所处的分支</p>
+</li>
+<li><p>git branch login 基于当前的main分支又创建了一个login分支 分支中的代码和main一致</p>
+</li>
+<li><p>通过chekout 来切换到指定分支上 git checkout login</p>
+</li>
+<li><p>通过git checkout -b logout 可以新建logout分支 并切换到它的上面</p>
+</li>
+<li><p>合并分支：先切换到main 分支上 在main分支上运行 git merge login命令  将login代码合并到main上</p>
+</li>
+<li><p>合并之后就删除本地的login 分支 git branch -d login</p>
+</li>
+<li><p>第一次上传分支 git push origin logout  (先要切换到这个分支上来) origin是指远程仓库的别名 ：第一次推送分支需要带 -u 参数，此后可以直接使用 git push 推送代码到远程分支。</p>
+</li>
+<li><p>通过git remote show 可以查看所有分支列表、</p>
+</li>
+<li><p>跟踪分支：把远程仓库的分支下载到本地仓库 git checkout logout（给本地分支重命名）</p>
+<p>git checkout  -b newbranch origin/logout(远程分支名称)</p>
+</li>
+<li><p>从远程分支拉取代码 git pull 保持远程的代码和本地仓库的一致</p>
+</li>
+<li><p>删除远程分支 git push origin –delete 远程分支名</p>
+</li>
+</ol>
 
                 
               </div>
@@ -283,11 +335,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="category-chain-item">前端学习笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Daily/">#Daily</a>
+        <a href="/tags/Git/">#Git</a>
       
     </div>
   
@@ -299,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>好久不见</div>
-      <div>https://puppyyang1994.github.io/2023/01/06/好久不见/</div>
+      <div>Git的基本使用</div>
+      <div>https://puppyyang1994.github.io/2023/02/14/的基本使用/</div>
     </div>
     <div class="license-meta">
       
@@ -312,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月6日</div>
+          <div>2023年2月14日</div>
         </div>
       
       
@@ -342,18 +415,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/14/%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Git的基本使用">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git的基本使用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/03/Vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Vue学习笔记（二）">
-                        <span class="hidden-mobile">Vue学习笔记（二）</span>
+                      <a href="/2023/01/06/%E5%A5%BD%E4%B9%85%E4%B8%8D%E8%A7%81/" title="好久不见">
+                        <span class="hidden-mobile">好久不见</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
