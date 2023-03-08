@@ -24,7 +24,7 @@
 <meta property="og:description" content="git bash 然后输入 mkdir coding  就创建了一个文件夹 （此时文件夹里是空的）  cd coding 到文件夹coding的位置  再git init  此时文件夹中会出来一个.git的文件夹  在coding文件夹中手动创建一个test.txt  使用命令行 git add test.txt 将文件放到暂存区  再git status查看文件夹的状态 会显示 changes">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-14T01:03:00.000Z">
-<meta property="article:modified_time" content="2023-02-14T01:08:42.489Z">
+<meta property="article:modified_time" content="2023-03-08T06:33:12.673Z">
 <meta property="article:author" content="Puppy">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.6k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          10 分钟
+          14 分钟
         
       </span>
     
@@ -327,6 +327,19 @@
 <li><p>删除远程分支 git push origin –delete 远程分支名</p>
 </li>
 </ol>
+<p><strong>补充一段hexo 的使用：</strong></p>
+<p>hexo的基本使用</p>
+<p>先hexo s 进入本地服务器 /admin 后台编辑  </p>
+<p>然后 返回看看  已经到本地服务器了 按ctrl+c 停止本地服务器  然后部署到github.io上  首先  hexo clean 删除之前的静态档案， 然后 hexo g生成静态档案  最后hexo d 部署到github pages</p>
+<p>git remote origin already exists” 是在 git 中遇到的一个常见错误。这意味着你已经将一个远程存储库设置为 “origin”，而现在你又尝试将另一个远程存储库设置为 “origin”。</p>
+<p>解决这个问题的方法有几种，其中一种是使用 “git remote remove” 命令删除已经存在的 “origin” 连接，然后重新将新的远程存储库设置为 “origin”。</p>
+<p>如下：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp">$ git remote <span class="hljs-keyword">remove</span> origin<br>$ git remote <span class="hljs-keyword">add</span> origin &lt;new_remote_repo&gt;<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p>或者更改远程名称</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-variable">$ </span>git remote rename origin old-origin<br><span class="hljs-variable">$ </span>git remote add origin &lt;new_remote_repo&gt;<br>复制代码<br></code></pre></td></tr></table></figure>
+
+<p>如果你想继续使用已经存在的 “origin” 连接，可以将新的远程存储库设置为另一个名称，例如 “neworigin”。</p>
 
                 
               </div>
