@@ -16,22 +16,22 @@
   <meta name="author" content="Puppy">
   <meta name="keywords" content="JS">
   
-    <meta name="description" content="1. vue&#x2F;cli 如何创建脚手架项目和启动 @vue&#x2F;cli是Vue官方提供的一个全局模块包，此包用于创建脚手架项目  脚手架是一个工作平台  脚手架开箱即用 0配置； babel支持， css&#x2F;less支持, 开发服务器支持  用node安装一个全局包 npm install @vue&#x2F;cli -g  全局包会在计算机中配置全局命令（vue命令）  如何创建一套脚手架项目  创建项目vue">
+    <meta name="description" content="node.js中默认仅支持CommonJS模块化规范，若想要在node.js中使用ES6模块化：  确保安装了v14.15.1或更高版本  在package.json的根节点中添加”type”:”module”节点  在文件中打开vscode 然后在终端运行npm init -y 初始化包管理文件 12345678910111213&amp;#123;  &quot;type&quot;:&quot;m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-cli的使用">
-<meta property="og:url" content="https://puppyyang1994.github.io/2023/03/08/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="vue前置知识">
+<meta property="og:url" content="https://puppyyang1994.github.io/2023/03/12/vue%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Puppy Yang">
-<meta property="og:description" content="1. vue&#x2F;cli 如何创建脚手架项目和启动 @vue&#x2F;cli是Vue官方提供的一个全局模块包，此包用于创建脚手架项目  脚手架是一个工作平台  脚手架开箱即用 0配置； babel支持， css&#x2F;less支持, 开发服务器支持  用node安装一个全局包 npm install @vue&#x2F;cli -g  全局包会在计算机中配置全局命令（vue命令）  如何创建一套脚手架项目  创建项目vue">
+<meta property="og:description" content="node.js中默认仅支持CommonJS模块化规范，若想要在node.js中使用ES6模块化：  确保安装了v14.15.1或更高版本  在package.json的根节点中添加”type”:”module”节点  在文件中打开vscode 然后在终端运行npm init -y 初始化包管理文件 12345678910111213&amp;#123;  &quot;type&quot;:&quot;m">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-08T06:29:11.000Z">
-<meta property="article:modified_time" content="2023-03-08T06:31:03.025Z">
+<meta property="article:published_time" content="2023-03-12T11:39:22.000Z">
+<meta property="article:modified_time" content="2023-03-12T13:57:25.084Z">
 <meta property="article:author" content="Puppy">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="ES6模块化与异步编程">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>vue-cli的使用 - Puppy Yang</title>
+  <title>vue前置知识 - Puppy Yang</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vue-cli的使用"></span>
+            <span id="subtitle" data-typed-text="vue前置知识"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-08 14:29" pubdate>
-          2023年3月8日 下午
+        <time datetime="2023-03-12 19:39" pubdate>
+          2023年3月12日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          926 字
+          1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -268,75 +268,46 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vue-cli的使用</h1>
+            <h1 style="display: none">vue前置知识</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-vue-cli-如何创建脚手架项目和启动"><a href="#1-vue-cli-如何创建脚手架项目和启动" class="headerlink" title="1. vue/cli 如何创建脚手架项目和启动"></a>1. vue/cli 如何创建脚手架项目和启动</h3><ol>
-<li><p>@vue/cli是Vue官方提供的一个全局模块包，此包用于创建脚手架项目</p>
-</li>
-<li><p>脚手架是一个工作平台</p>
-</li>
-<li><p>脚手架开箱即用 0配置； babel支持， css/less支持, 开发服务器支持</p>
-</li>
-<li><p>用node安装一个全局包 <code>npm install @vue/cli -g</code>  全局包会在计算机中配置全局命令（vue命令）</p>
-</li>
-<li><p>如何创建一套脚手架项目</p>
+                <ol>
+<li><p>node.js中默认仅支持CommonJS模块化规范，若想要在node.js中使用ES6模块化：</p>
 <ul>
-<li>创建项目<code>vue create vuecli-demo</code></li>
-<li>选择模板和包管理器(Vue 2) 等待创建完毕</li>
-<li>按照提示 运行 cd 文件名  +  npm run serve 就成功了</li>
+<li><p>确保安装了v14.15.1或更高版本</p>
+</li>
+<li><p>在package.json的根节点中添加”type”:”module”节点</p>
+</li>
+<li><p>在文件中打开vscode 然后在终端运行npm init -y 初始化包管理文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>  <span class="hljs-string">&quot;type&quot;</span>:<span class="hljs-string">&quot;module&quot;</span>,<br>  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;test&quot;</span>,<br>  <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,<br>  <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-string">&quot;main&quot;</span>: <span class="hljs-string">&quot;01_m.js&quot;</span>,<br>  <span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-string">&quot;test&quot;</span>: <span class="hljs-string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br>  &#125;,<br>  <span class="hljs-string">&quot;keywords&quot;</span>: [],<br>  <span class="hljs-string">&quot;author&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,<br>  <span class="hljs-string">&quot;license&quot;</span>: <span class="hljs-string">&quot;ISC&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>各个文件包的含义</p>
+<li><p>ES6模块化的基本语法</p>
 <ul>
-<li>node_modules 项目依赖的第三方包</li>
-<li>public 静态文件目录<ul>
-<li>favicon.ico 浏览器小图标</li>
-<li>index.html 单页面的html(网页浏览的是它)</li>
+<li>默认导出与默认导入</li>
+<li>按需导出和按需导入</li>
+<li>直接导入并执行模块中的代码</li>
 </ul>
-</li>
-<li>src 业务文件夹<ul>
-<li>assets静态资源<ul>
-<li>logo.png vue的logo图片</li>
-</ul>
-</li>
-<li>components 组件目录<ul>
-<li>hello.vue 欢迎页面vue代码文件</li>
-</ul>
-</li>
-<li>App.vue 整个应用的根组件</li>
-<li>main.js 入口的js文件（webpack打包的入口)</li>
-</ul>
-</li>
-<li>.gitignore  git提交忽略配置</li>
-<li>babel.config.js babel配置</li>
-<li>package.json 依赖包列表</li>
-<li>README.md 项目说明</li>
-<li>node.lock 项目包版本锁定和缓存地址</li>
-</ul>
-</li>
-<li><p>项目入口和各文件的关系</p>
-<ul>
-<li>入口 main.js</li>
-<li>new Vue(Vue 实例化) 同时插入html  <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code>(index.html)</li>
-<li>根组件 App.vue （标签样式数据）Vue页面主入口</li>
-<li>创建组件1,2,3.。。。</li>
-</ul>
-<p>App.vue=&gt;main.js=&gt;index.html</p>
-</li>
-<li><p>vue.config.js 配置文件</p>
-<p>eslint是代码检查工具, 违反规定就报错 </p>
-<p><code> transpileDependencies: true, lintOnSave:false,</code> 重启服务器，即可关闭语法检查</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 默认导出 export default 默认导出的成员</span><br><span class="hljs-keyword">let</span> n1 = <span class="hljs-number">10</span> <span class="hljs-comment">//定义模块私有成员</span><br><span class="hljs-keyword">let</span> n2 = <span class="hljs-number">20</span> <br><span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>)&#123;&#125; <span class="hljs-comment">//定义模块私有方法</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;n1, fn&#125; 使用<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> 默认导出，向外共享n1和fn<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//默认导入 import </span><br><span class="hljs-keyword">import</span> n1 <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./01.js&#x27;</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<pre><code class="hljs"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//按需导出</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> s1 = <span class="hljs-string">&#x27;aaa&#x27;</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">say</span>(<span class="hljs-params"></span>)&#123;&#125;<br></code></pre></td></tr></table></figure>
+</code></pre>
 </li>
 </ol>
-<h3 id="2-单文件组件"><a href="#2-单文件组件" class="headerlink" title="2. 单文件组件"></a>2. 单文件组件</h3><ol>
-<li>Vue推荐用<code>.vue</code>文件来开发项目</li>
-<li>template只能有一个根标签</li>
-<li>vue文件-独立模块-作用域互不影响</li>
-<li>style配合scoped属性，保证样式只针对当前的template内标签生效</li>
-<li>vue文件配合webpack，把它们打包插入到index.html中</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//按需导入</span><br><span class="hljs-comment">//按需导入时，可以使用 as 关键字进行重命名</span><br><span class="hljs-keyword">import</span> &#123;s1, say&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./01.js&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//如果只想单纯地执行某个模块中的代码，并不需要得到模块中向外共享的成员。此时，可以直接导入并执行模</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./05_m3.js&#x27;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>回调地狱</li>
 </ol>
 
                 
@@ -350,7 +321,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue/">#vue</a>
+        <a href="/tags/ES6%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">#ES6模块化与异步编程</a>
       
     </div>
   
@@ -362,8 +333,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue-cli的使用</div>
-      <div>https://puppyyang1994.github.io/2023/03/08/vue-cli的使用/</div>
+      <div>vue前置知识</div>
+      <div>https://puppyyang1994.github.io/2023/03/12/vue前置知识/</div>
     </div>
     <div class="license-meta">
       
@@ -375,7 +346,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月8日</div>
+          <div>2023年3月12日</div>
         </div>
       
       
@@ -405,9 +376,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/10/%E7%BD%91%E6%98%93%E4%BA%91%E6%97%A5%E5%BF%972/" title="网易云日志2">
+                      <a href="/2023/03/13/vuex-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="vuex 基本使用">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">网易云日志2</span>
+                        <span class="hidden-mobile">vuex 基本使用</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -415,8 +386,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/08/vue2%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/" title="vue2主要知识点">
-                        <span class="hidden-mobile">vue2主要知识点</span>
+                      <a href="/2023/03/10/%E7%BD%91%E6%98%93%E4%BA%91%E6%97%A5%E5%BF%972/" title="网易云日志2">
+                        <span class="hidden-mobile">网易云日志2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

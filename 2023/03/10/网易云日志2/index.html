@@ -16,22 +16,22 @@
   <meta name="author" content="Puppy">
   <meta name="keywords" content="JS">
   
-    <meta name="description" content="1. vue&#x2F;cli 如何创建脚手架项目和启动 @vue&#x2F;cli是Vue官方提供的一个全局模块包，此包用于创建脚手架项目  脚手架是一个工作平台  脚手架开箱即用 0配置； babel支持， css&#x2F;less支持, 开发服务器支持  用node安装一个全局包 npm install @vue&#x2F;cli -g  全局包会在计算机中配置全局命令（vue命令）  如何创建一套脚手架项目  创建项目vue">
+    <meta name="description" content="1. 基础知识点 reset.css和flexible.js的作用：  reset.css是一个css文件，它的作用是重置浏览器标签的样式，覆盖浏览器的CSS默认属性。这样可以让不同浏览器显示的页面更加一致，避免一些样式问题。 flexible.js是一个用来适配移动端的js框架。它的原理是根据不同的屏幕宽度给html根节点设置不同的font-size，然后用rem来代替px,实现页面的自适应。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-cli的使用">
-<meta property="og:url" content="https://puppyyang1994.github.io/2023/03/08/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:title" content="网易云日志2">
+<meta property="og:url" content="https://puppyyang1994.github.io/2023/03/10/%E7%BD%91%E6%98%93%E4%BA%91%E6%97%A5%E5%BF%972/index.html">
 <meta property="og:site_name" content="Puppy Yang">
-<meta property="og:description" content="1. vue&#x2F;cli 如何创建脚手架项目和启动 @vue&#x2F;cli是Vue官方提供的一个全局模块包，此包用于创建脚手架项目  脚手架是一个工作平台  脚手架开箱即用 0配置； babel支持， css&#x2F;less支持, 开发服务器支持  用node安装一个全局包 npm install @vue&#x2F;cli -g  全局包会在计算机中配置全局命令（vue命令）  如何创建一套脚手架项目  创建项目vue">
+<meta property="og:description" content="1. 基础知识点 reset.css和flexible.js的作用：  reset.css是一个css文件，它的作用是重置浏览器标签的样式，覆盖浏览器的CSS默认属性。这样可以让不同浏览器显示的页面更加一致，避免一些样式问题。 flexible.js是一个用来适配移动端的js框架。它的原理是根据不同的屏幕宽度给html根节点设置不同的font-size，然后用rem来代替px,实现页面的自适应。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-08T06:29:11.000Z">
-<meta property="article:modified_time" content="2023-03-08T06:31:03.025Z">
+<meta property="article:published_time" content="2023-03-10T00:37:16.000Z">
+<meta property="article:modified_time" content="2023-03-10T09:27:26.548Z">
 <meta property="article:author" content="Puppy">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="demo">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>vue-cli的使用 - Puppy Yang</title>
+  <title>网易云日志2 - Puppy Yang</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vue-cli的使用"></span>
+            <span id="subtitle" data-typed-text="网易云日志2"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-08 14:29" pubdate>
-          2023年3月8日 下午
+        <time datetime="2023-03-10 08:37" pubdate>
+          2023年3月10日 早上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          926 字
+          1.9k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          8 分钟
+          16 分钟
         
       </span>
     
@@ -268,76 +268,86 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vue-cli的使用</h1>
+            <h1 style="display: none">网易云日志2</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="1-vue-cli-如何创建脚手架项目和启动"><a href="#1-vue-cli-如何创建脚手架项目和启动" class="headerlink" title="1. vue/cli 如何创建脚手架项目和启动"></a>1. vue/cli 如何创建脚手架项目和启动</h3><ol>
-<li><p>@vue/cli是Vue官方提供的一个全局模块包，此包用于创建脚手架项目</p>
-</li>
-<li><p>脚手架是一个工作平台</p>
-</li>
-<li><p>脚手架开箱即用 0配置； babel支持， css/less支持, 开发服务器支持</p>
-</li>
-<li><p>用node安装一个全局包 <code>npm install @vue/cli -g</code>  全局包会在计算机中配置全局命令（vue命令）</p>
-</li>
-<li><p>如何创建一套脚手架项目</p>
+                <h4 id="1-基础知识点"><a href="#1-基础知识点" class="headerlink" title="1. 基础知识点"></a>1. 基础知识点</h4><ol>
+<li><p><code>reset.css</code>和<code>flexible.js</code>的作用：</p>
 <ul>
-<li>创建项目<code>vue create vuecli-demo</code></li>
-<li>选择模板和包管理器(Vue 2) 等待创建完毕</li>
-<li>按照提示 运行 cd 文件名  +  npm run serve 就成功了</li>
+<li><code>reset.css</code>是一个css文件，它的作用是重置浏览器标签的样式，覆盖浏览器的CSS默认属性。这样可以让不同浏览器显示的页面更加一致，避免一些样式问题。</li>
+<li><code>flexible.js</code>是一个用来适配移动端的js框架。它的原理是根据不同的屏幕宽度给html根节点设置不同的font-size，然后用rem来代替px,实现页面的自适应。</li>
 </ul>
 </li>
-<li><p>各个文件包的含义</p>
+<li><p>什么是组件库 ：</p>
 <ul>
-<li>node_modules 项目依赖的第三方包</li>
-<li>public 静态文件目录<ul>
-<li>favicon.ico 浏览器小图标</li>
-<li>index.html 单页面的html(网页浏览的是它)</li>
-</ul>
+<li><p>组件库是一个<strong>提效工具</strong>，它可以将界面中具有<strong>通用性的元素组件/控件</strong>进行归纳整理，形成统一规范的组件集合。这样可以实现<strong>快速复用、批量修改、协作一致、用户体验统一</strong>等目的。比如，Vue.js是一个前端框架，它提供了很多组件来扩展HTML元素。</p>
 </li>
-<li>src 业务文件夹<ul>
-<li>assets静态资源<ul>
-<li>logo.png vue的logo图片</li>
-</ul>
+<li><p>bootstrap是一个流行的HTML，CSS和JS库。它可以快速创建响应式页面。</p>
 </li>
-<li>components 组件目录<ul>
-<li>hello.vue 欢迎页面vue代码文件</li>
 </ul>
-</li>
-<li>App.vue 整个应用的根组件</li>
-<li>main.js 入口的js文件（webpack打包的入口)</li>
-</ul>
-</li>
-<li>.gitignore  git提交忽略配置</li>
-<li>babel.config.js babel配置</li>
-<li>package.json 依赖包列表</li>
-<li>README.md 项目说明</li>
-<li>node.lock 项目包版本锁定和缓存地址</li>
-</ul>
-</li>
-<li><p>项目入口和各文件的关系</p>
+<ol start="3">
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/49536781">库、插件、组件的区别有不同的理解，这里给出一种可能的解释</a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/49536781">1</a><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/844476">2</a>：</p>
 <ul>
-<li>入口 main.js</li>
-<li>new Vue(Vue 实例化) 同时插入html  <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code>(index.html)</li>
-<li>根组件 App.vue （标签样式数据）Vue页面主入口</li>
-<li>创建组件1,2,3.。。。</li>
+<li>库：为解决某种特定需求的程序功能集合，是一个完整的东西，可以直接调用或运行，一个库中可能有多个包或模块。</li>
+<li>插件：近乎组件，但有统一接口，参与程序内部运行环节的一段或多段代码集合。</li>
+<li>组件：代码重用，功能相对单一或独立，无统一接口，可重复使用并且可以和其他对象进行交互的对象。</li>
 </ul>
-<p>App.vue=&gt;main.js=&gt;index.html</p>
-</li>
-<li><p>vue.config.js 配置文件</p>
-<p>eslint是代码检查工具, 违反规定就报错 </p>
-<p><code> transpileDependencies: true, lintOnSave:false,</code> 重启服务器，即可关闭语法检查</p>
+<p>例如，在前端开发中，Bootstrap是一个库，它提供了很多样式和组件来创建网页；jQuery是一个插件，它提供了很多方法来操作DOM元素；按钮、导航栏、表格等都是组件，它们可以在不同的页面中复用。</p>
 </li>
 </ol>
-<h3 id="2-单文件组件"><a href="#2-单文件组件" class="headerlink" title="2. 单文件组件"></a>2. 单文件组件</h3><ol>
-<li>Vue推荐用<code>.vue</code>文件来开发项目</li>
-<li>template只能有一个根标签</li>
-<li>vue文件-独立模块-作用域互不影响</li>
-<li>style配合scoped属性，保证样式只针对当前的template内标签生效</li>
-<li>vue文件配合webpack，把它们打包插入到index.html中</li>
+<p>笔记：</p>
+<p>注意：组件一定要先注册（main.js)然后才能直接在组件中使用</p>
+<p>高度= 图片的高度/html根元素font-size的大小 得到一个rem单位的</p>
+<p>调整图片的 width height 和 fit模式； 开始只需要设置一个即可，到后面v-for循环一下就好了</p>
+<p>gutter设置间距</p>
+</li>
 </ol>
+<p>​       input 是实时监听  change事件 是当焦点失去的时候才会改变</p>
+<ol>
+<li>关于前端中的异步：</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42931825/article/details/103237547">前端中的异步是指一种编程模式，它可以让一些耗时的操作不会阻塞主线程的执行，而是在完成后再回调或者返回结果</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42931825/article/details/103237547">1</a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/588435593">2</a><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/zwowtega7kjc4ad-trp4">3</a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/158795288">。这样可以提高程序的性能和用户体验</a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/158795288">4</a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7021779027652247583">5</a>。</p>
+<p>前端中常见的异步操作有：</p>
+<ul>
+<li>setTimeout 和 setInterval</li>
+<li>ajax 请求</li>
+<li>Promise</li>
+<li>Generator</li>
+<li>async/await</li>
+<li>事件监听</li>
+</ul>
+<ol start="2">
+<li>普通函数和异步函数的区别：</li>
+</ol>
+<p>async 函数和普通函数的区别主要有以下几点：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38969618/article/details/103026314">async 函数会返回一个 Promise 对象，而普通函数不一定会</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38969618/article/details/103026314">1</a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/SamWeb/p/8417940.html">2</a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42681555/article/details/122042447">3</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">async 函数可以使用 await 关键字来等待异步操作的结果，而普通函数不能</a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function">4</a>。</li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7062155174436929550">async 函数的语义更清楚，表明该函数是异步的，而普通函数不一定能看出是否是异步的</a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7062155174436929550">5</a></li>
+</ul>
+<ol start="3">
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise 是一种 JavaScript 对象，它代表了一个异步操作的最终完成或失败及其结果值</a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">1</a><a target="_blank" rel="noopener" href="https://www.w3schools.com/Js/js_promise.asp">2</a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">。它可以让你将异步操作的成功或失败的处理函数与异步操作本身分离，避免了回调地狱</a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">3</a>。</p>
+<p>Promise 有三种状态：</p>
+<ul>
+<li>pending：初始状态，既不是成功，也不是失败。</li>
+<li>fulfilled：表示操作成功完成。</li>
+<li>rejected：表示操作失败。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise 对象有一个 then 方法，它可以接受两个参数，分别是 fulfilled 状态和 rejected 状态的回调函数</a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">3</a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">1</a><a target="_blank" rel="noopener" href="https://www.w3schools.com/Js/js_promise.asp">2</a>。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) &#123;<br>  <span class="hljs-comment">// 异步操作</span><br>  <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* 异步操作成功 */</span>) &#123;<br>    <span class="hljs-title function_">resolve</span>(value); <span class="hljs-comment">// 改变 Promise 的状态为 fulfilled，并传递结果值</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_">reject</span>(error); <span class="hljs-comment">// 改变 Promise 的状态为 rejected，并传递错误原因</span><br>  &#125;<br>&#125;);<br><br>promise.<span class="hljs-title function_">then</span>(<br>  <span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) &#123; <span class="hljs-comment">/* 处理成功的结果 */</span> &#125;,<br>  <span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) &#123; <span class="hljs-comment">/* 处理失败的原因 */</span> &#125;<br>);<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>如果没有数据了呢？</p>
+<p>这一点要考虑进去 所以需要对finished更新</p>
+<p>重点是对三个函数的操作  1. 点击  2. 搜索 3. 加载更多   这里面会有一些bug</p>
+<p>输入框的防抖：这个很重要也很常见</p>
+<p>什么是防抖：计时n秒 最后执行一次； 如果再次触发 重新计时</p>
+<p>整个项目都要公用的组件就放到components里面</p>
+<p>SongItem是 Home的子组件</p>
+<p>两套重复的标签就放到了一个组件里 songitem</p>
+<p>搜索结果和首页的显示哪里（这里是父给子传递数据）</p>
+<p>看到重复的标签 第一反应就是看看他能不能封装成一个公共的组件</p>
 
                 
               </div>
@@ -350,7 +360,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue/">#vue</a>
+        <a href="/tags/demo/">#demo</a>
       
     </div>
   
@@ -362,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue-cli的使用</div>
-      <div>https://puppyyang1994.github.io/2023/03/08/vue-cli的使用/</div>
+      <div>网易云日志2</div>
+      <div>https://puppyyang1994.github.io/2023/03/10/网易云日志2/</div>
     </div>
     <div class="license-meta">
       
@@ -375,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月8日</div>
+          <div>2023年3月10日</div>
         </div>
       
       
@@ -405,9 +415,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/10/%E7%BD%91%E6%98%93%E4%BA%91%E6%97%A5%E5%BF%972/" title="网易云日志2">
+                      <a href="/2023/03/12/vue%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86/" title="vue前置知识">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">网易云日志2</span>
+                        <span class="hidden-mobile">vue前置知识</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -415,8 +425,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/08/vue2%E4%B8%BB%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/" title="vue2主要知识点">
-                        <span class="hidden-mobile">vue2主要知识点</span>
+                      <a href="/2023/03/08/vue-cli%E7%9A%84%E4%BD%BF%E7%94%A8/" title="vue-cli的使用">
+                        <span class="hidden-mobile">vue-cli的使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
